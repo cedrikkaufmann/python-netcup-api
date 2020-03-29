@@ -182,7 +182,7 @@ class Client:
 
         r = requests.post(url=Client.REST_URI, json=payload)
 
-        if r.json()['statuscode'] != 'success':
+        if r.json()['status'] != 'success':
             raise Exception(r.json()['shortmessage'], r.json()['longmessage'], payload)
 
     def add_dns_records(self, domainname, *records):
