@@ -7,23 +7,7 @@ This client can be used to access the Netcup API.
 - Delete existing DNS records
 - Script to update ACME challenge for Let´s encrypt certificates
 
-## Usage
-```
-usage: letsencrypt_acme_challenge_client.py [-h] --key KEY --password PASSWORD --customernumber CUSTOMERNUMBER --domain DOMAIN --certbot_validation CERTBOT_VALIDATION [--cleanup]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --key KEY             api key to access netcup dns api
-  --password PASSWORD   api password to access netcup dns api
-  --customernumber CUSTOMERNUMBER
-                        netcup customer number
-  --domain DOMAIN       domain to issue wildcard certificate for
-  --certbot_validation CERTBOT_VALIDATION
-                        let´s encrypt challenge nonce
-  --cleanup             deletes the previously created acme challenge record
-```
-
-## Example
+## API Client Usage
 First let´s create a new api client:
 ```
 # import the api client
@@ -64,6 +48,22 @@ for r in records:
 ```
 
 If the client instance is destroyed it logs-out automatically.
+
+## Let´s Encrypt Challenge Client Usage
+```
+usage: letsencrypt_acme_challenge_client.py [-h] --key KEY --password PASSWORD --customernumber CUSTOMERNUMBER --domain DOMAIN --certbot_validation CERTBOT_VALIDATION [--cleanup]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --key KEY             api key to access netcup dns api
+  --password PASSWORD   api password to access netcup dns api
+  --customernumber CUSTOMERNUMBER
+                        netcup customer number
+  --domain DOMAIN       domain to issue wildcard certificate for
+  --certbot_validation CERTBOT_VALIDATION
+                        let´s encrypt challenge nonce
+  --cleanup             deletes the previously created acme challenge record
+```
 
 ## Dependencies
 - requests
