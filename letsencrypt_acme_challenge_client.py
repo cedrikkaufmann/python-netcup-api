@@ -5,14 +5,17 @@ from netcup_api.dns import DNSRecord
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--key', action='store', type=str, help='API-Key to access Netcup DNS API', required=True)
-    parser.add_argument('--password', action='store', type=str, help='API-Password to access Netcup DNS API',
+    parser.add_argument('--key', action='store', type=str, help='api key to access netcup dns api',
                         required=True)
-    parser.add_argument('--customernumber', action='store', type=str, help='Netcup customer number', required=True)
-    parser.add_argument('--domain', action='store', type=str, help='Domain to issue wildcard certificate for',
+    parser.add_argument('--password', action='store', type=str, help='api password to access netcup dns api',
                         required=True)
-    parser.add_argument('--certbot_validation', action='store', type=str, help='Let´s encrypt challenge', required=True)
-    parser.add_argument('--cleanup', action='store_true')
+    parser.add_argument('--customernumber', action='store', type=str, help='netcup customer number',
+                        required=True)
+    parser.add_argument('--domain', action='store', type=str, help='domain to issue wildcard certificate for',
+                        required=True)
+    parser.add_argument('--certbot_validation', action='store', type=str, help='let´s encrypt challenge nonce',
+                        required=True)
+    parser.add_argument('--cleanup', action='store_true', help='deletes the previously created acme challenge record')
 
     args = parser.parse_args()
 
